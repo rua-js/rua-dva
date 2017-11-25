@@ -78,7 +78,7 @@ function ruaReducers(reducers, dva, namespace) {
     // if (Object.prototype.hasOwnProperty(reducers, reducer)) {
     actions[reducer] = (payload, extra) => {
       dva._store.dispatch({
-        action: `${namespace}/${reducer}`,
+        type: `${namespace}/${reducer}`,
         payload,
           ...extra,
     });
