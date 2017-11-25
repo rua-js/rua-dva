@@ -1,27 +1,25 @@
 # Rua-Dva
-Easier way to use dva.js
+让dva.js更加好用, 优雅
 
-[中文介绍](./README-zhCN.md)
-
-## What is Dva?
+## 什么是Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
 
-## What is Rua
-rua means wrapper 
+## 什么是Rua
+rua是重庆话, 普通话里是用力揉和用力捏的意思, 我们这里是处理一下的意思 (Wrapper).
 
-## Inspiration
+## Actions 来自
 [MirrorJs](https://github.com/mirrorjs/mirror)
 
-the actions design is great, but other part of mirror.js is bad.
+但是MirrorJs其他部分实在太差了.
 
-## Bootstrap
+## 快速开始
 
-### Initiation
+### 初始化
 ```
-// import
+// 导入
 import { ruaDva } from 'rua-dva'
  
-// create dva
+// 创建dva
 const app = dva({
   extraEnhancers: [],
   onError(e) {
@@ -29,7 +27,7 @@ const app = dva({
   },
 })
  
-// rua
+// rua一下
 ruaDva(app)
  
 // models
@@ -39,28 +37,28 @@ app.start(xxx)
 ...
 ```
 
-### Usage 1
+### 使用例子1
 ```
-// before
+// 原来用法
 ...
 this.props.dispatch({
   type: 'auth/logout',
 })
 ...
  
-// import
+// 导入
 import { actions } from 'rua-dva'
  
-// now
+// 现在
 ...
 actions.auth.logout()
 ...
 ```
 
-### Usage 2
+### 使用例子2
 
 ```
-// before
+// 原来用法
 ...
 this.props.dispatch({
   type: 'auth/login',
@@ -71,10 +69,10 @@ this.props.dispatch({
 })
 ...
  
-// import
+// 导入
 import { actions } from 'rua-dva'
  
-// now
+// 现在
 ...
 actions.auth.login({
   username: 'admin',
@@ -83,10 +81,10 @@ actions.auth.login({
 ...
 ```
 
-### Usage 3
+### 使用例子3
 
 ```
-// before
+// 原来用法
 ...
 this.props.dispatch({
   type: 'auth/loginAsync',
@@ -95,20 +93,20 @@ this.props.dispatch({
     password: 'rua and roll',
   },
   success: () => console.log('yeah~'),
-  failure: () => console.log('no~'),
+  failure: () => console.log('shit~'),
 })
 ...
  
-// import
+// 导入
 import { actions } from 'rua-dva'
  
-// now
+// 现在
 ...
 actions.auth.loginAsync({
   username: 'admin',
   password: 'rua and roll',
 }, {
   success: () => console.log('yeah~'),
-  failure: () => console.log('no~'),
+  failure: () => console.log('shit~'),
 })
 ...
