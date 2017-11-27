@@ -86,8 +86,6 @@ function ruaReducers(reducers, dva, namespace) {
     // }
   }
 
-  console.log(actions);
-
   return actions;
 }
 
