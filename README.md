@@ -15,11 +15,11 @@ rua means wrapper
 the actions design is great, but other part of mirror.js is bad.
 
 ## Todo
-[-] enable adding existing model to rua-dva
+- [ ] enable adding existing model to rua-dva
 
-[-] integrated with rua-core
+- [ ] integrated with rua-core
 
-[-] use Class rewrite rua-dva
+- [ ] use Class rewrite rua-dva
 
 ## Bootstrap
 

@@ -13,11 +13,11 @@ rua是重庆话, 普通话里是用力揉和用力捏的意思, 我们这里是�
 但是MirrorJs其他部分实在太差了.
 
 ## 待办事项
-[-] 添加已有的model到rua-dva里面
+- [ ] 添加已有的model到rua-dva里面
 
-[-] 集成rua-core
+- [ ] 集成rua-core
 
-[-] Class化
+- [ ] Class化
 
 ## 快速开始
 
