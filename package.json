@@ -1,6 +1,6 @@
 {
   "name": "rua-dva",
-  "version": "0.2.2",
+  "version": "0.2.6",
   "description": "Easier way to use dva",
   "main": "lib/index.js",
   "directories": {
@@ -26,7 +26,8 @@
   ],
   "files": [
     "src",
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "homepage": "https://github.com/copydog/rua-dva#readme",
   "devDependencies": {
