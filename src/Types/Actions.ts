@@ -1,5 +1,5 @@
 import Action from './Action'
 
 export default interface Actions {
-  [key: string]: Action
+  [key: string]: Action | any
 }
