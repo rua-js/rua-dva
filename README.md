@@ -26,7 +26,7 @@ the actions design is great, but other part of mirror.js is bad.
 
 ## Bootstrap
 
-### Initiation
+### Setup
 ```
 // import
 import { ruaDva } from 'rua-dva'
