@@ -5,7 +5,7 @@ import * as React from 'react'
 import { create } from 'dva-core'
 import { Provider, connect } from 'react-redux'
 // @ts-ignore
-import global from 'global'
+import * as global from 'global'
 
 // Self Dependency
 import RuaDva from './RuaDva'
