@@ -1,5 +1,5 @@
 // Third-party Dependency
-import invariant from 'invariant'
+import * as invariant from 'invariant'
 
 // Self Dependency
 import { Actions } from './Types'
@@ -218,10 +218,10 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    */
   protected static validateDva (dva: any): void {
     // check model/start/unmodel method
-    invariant(
-      dva.model && dva.start && dva.unmodel,
-      `[Rua.js][dva]Invalid dva is given.`
-    )
+    // invariant(
+    //   dva.model && dva.start && dva.unmodel,
+    //   `[Rua.js][dva]Invalid dva is given.`
+    // )
   }
 
 }
