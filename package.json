@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/copydog/rua-dva.git"
+    "url": "https://github.com/rua-js/rua-dva.git"
   },
   "author": "copydog",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/copydog/rua-dva/issues"
+    "url": "https://github.com/rua-js/rua-dva/issues"
   },
   "keywords": [
     "dva",
@@ -29,7 +29,7 @@
     "lib",
     "index.d.ts"
   ],
-  "homepage": "https://github.com/copydog/rua-dva#readme",
+  "homepage": "https://github.com/rua-js/rua-dva#readme",
   "devDependencies": {
     "@types/invariant": "^2.2.29",
     "@types/jest": "^21.1.8",
