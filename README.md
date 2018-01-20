@@ -3,11 +3,14 @@ Easier way to use dva.js
 
 [中文介绍](./README-zhCN.md)
 
+## Stable Version: 0.2.6
+`yarn add rua-dva@0.2.6`
+
 ## What is Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
 
 ## What is Rua
-rua means wrapper 
+rua means wrapper / enhancement
 
 ## Inspiration
 [MirrorJs](https://github.com/mirrorjs/mirror)
@@ -32,7 +35,7 @@ import { ruaDva } from 'rua-dva'
 const app = dva({
   extraEnhancers: [],
   onError(e) {
-    Toast.fail(e.message, /* duration */1);
+    console.log(e.message);
   },
 })
  

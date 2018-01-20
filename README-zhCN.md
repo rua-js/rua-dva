@@ -1,6 +1,9 @@
 # Rua-Dva
 让dva.js更加好用, 优雅
 
+## 稳定版本: 0.2.6
+`yarn add rua-dva@0.2.6`
+
 ## 什么是Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
 
@@ -30,7 +33,7 @@ import { ruaDva } from 'rua-dva'
 const app = dva({
   extraEnhancers: [],
   onError(e) {
-    Toast.fail(e.message, /* duration */1);
+    console.log(e.message);
   },
 })
  
