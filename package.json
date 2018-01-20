@@ -1,6 +1,6 @@
 {
   "name": "rua-dva",
-  "version": "0.2.6",
+  "version": "0.3.0-alpha.1",
   "description": "Easier way to use dva",
   "main": "lib/index.js",
   "directories": {
