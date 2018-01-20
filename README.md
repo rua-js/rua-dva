@@ -3,8 +3,8 @@ Easier way to use dva.js
 
 [中文介绍](./README-zhCN.md)
 
-## Stable Version: 0.2.6
-`yarn add rua-dva@0.2.6`
+## Stable Version: 0.3.0
+`yarn add rua-dva@0.3.0`
 
 ## What is Dva?
 [dvajs/dva](https://github.com/dvajs/dva)

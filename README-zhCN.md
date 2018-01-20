@@ -1,8 +1,8 @@
 # Rua-Dva
 让dva.js更加好用, 优雅
 
-## 稳定版本: 0.2.6
-`yarn add rua-dva@0.2.6`
+## 稳定版本: 0.3.0
+`yarn add rua-dva@0.3.0`
 
 ## 什么是Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
