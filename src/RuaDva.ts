@@ -7,26 +7,75 @@ import { Actions } from './Types'
 // Rua Core Dependency
 import { HasStore } from 'rua-core/lib/Contracts'
 import { Store } from 'rua-core/lib/Types'
-import { AbstractPackage } from 'rua-core/lib/Abstractions'
+import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 
-class RuaDva extends AbstractPackage implements HasStore {
+class RuaDva extends AbstractRuaPackage implements HasStore {
 
+  /**
+   * The dva instance
+   *
+   * @type {object}
+   */
   public store: Store = {}
 
+  /**
+   * boot status
+   *
+   * @type {boolean}
+   */
   public booted: boolean = false
 
+  /**
+   * Rua Package Flag
+   *
+   * @type {boolean}
+   */
+  public isRuaPackage: boolean = true
+
+  /**
+   * RuaDva actions
+   *
+   * @type {object}
+   */
   public actions: Actions = {}
 
-  protected dispatch: any = () => console.error('[Rua.js][dva]Dispatch method is not bound yet')
+  /**
+   * Dispatch function of dva store
+   *
+   * @param args
+   * @returns {any}
+   */
+  protected dispatch: any = (...args: any[]) => this.store._store.dispatch(...args)
 
-  protected readonly originalModelPath: string = '__rua_model'
+  /**
+   * Old function of model
+   *
+   * @type {string}
+   */
+  protected readonly oldModelPath: string = '__rua_model'
 
-  protected readonly originalUnmodelPath: string = '__rua_unmodel'
+  /**
+   * Old function of unmodel
+   *
+   * @type {string}
+   */
+  protected readonly oldUnmodelPath: string = '__rua_unmodel'
 
-  protected readonly originalStartPath: string = '__rua_start'
+  /**
+   * Old function of start
+   *
+   * @type {string}
+   */
+  protected readonly oldStartPath: string = '__rua_start'
 
 
   // -------------------- getter, setter, checker -------------------
+
+  /**
+   * Save dispatch function
+   *
+   * @param dispatch
+   */
   public saveDispatch(dispatch: any): void {
     this.dispatch = dispatch
   }
@@ -40,25 +89,15 @@ class RuaDva extends AbstractPackage implements HasStore {
     // save to store
     this.store = dva
     // initialize property
-    this.store[this.originalModelPath] = undefined
-    this.store[this.originalUnmodelPath] = undefined
-    this.store[this.originalStartPath] = undefined
+    this.store[this.oldModelPath] = undefined
+    this.store[this.oldUnmodelPath] = undefined
+    this.store[this.oldStartPath] = undefined
   }
 
-  // --------------------    static functions     -------------------
   /**
-   * Verify dva instance
+   * Register existing models in the dva instance
    *
-   * @param dva
    */
-  protected static validateDva (dva: any): void {
-    // check model/start/unmodel method
-    // invariant(
-    //   dva.model && dva.start && dva.unmodel,
-    //   `[Rua.js][dva]Invalid dva is given.`
-    // )
-  }
-
   protected registerExistingModels (): void {
     const models = this.store._models
     for (const model in models) {
@@ -68,6 +107,11 @@ class RuaDva extends AbstractPackage implements HasStore {
     }
   }
 
+  /**
+   * Register a model to actions
+   *
+   * @param model
+   */
   protected registerModel(model: any): void {
     const { namespace, reducers, effects } = model
     this.actions[namespace] = {
@@ -76,6 +120,13 @@ class RuaDva extends AbstractPackage implements HasStore {
     }
   }
 
+  /**
+   * Register an action to a model
+   *
+   * @param {string} namespace
+   * @param reducers
+   * @returns {object}
+   */
   protected registerActions(namespace: string, reducers: any): object {
     const actions: Actions = {}
     for (const reducer in reducers) {
@@ -93,24 +144,36 @@ class RuaDva extends AbstractPackage implements HasStore {
     return actions
   }
 
+  /**
+   * Unregister an action from a model
+   *
+   * @param {string} namespace
+   * @returns {boolean}
+   */
   protected unregisterActions(namespace: string): boolean {
     delete this.actions[namespace]
     return !this.actions[namespace]
   }
 
+  /**
+   * Hijack old model function. New model function can register actions automatically
+   */
   protected interceptModel(): void {
     // new location for original model method
-    this.store[this.originalModelPath] = this.store.model
+    this.store[this.oldModelPath] = this.store.model
     // new model method for dva
     this.store.model = (model: any) => {
       this.registerModel(model)
-      return this.store[this.originalModelPath](model)
+      return this.store[this.oldModelPath](model)
     }
   }
 
+  /**
+   * Hijack old unmodel function. New unmodel function can unregister actions automatically
+   */
   protected interceptUnmodel(): void {
     // new location for original unmodel method
-    this.store[this.originalUnmodelPath] = this.store.unmodel
+    this.store[this.oldUnmodelPath] = this.store.unmodel
     // new unmodel method for dva
     this.store.unmodel = (model: any) => {
       const originalOutput = this.store.__rua_unmodel(model)
@@ -121,12 +184,15 @@ class RuaDva extends AbstractPackage implements HasStore {
     }
   }
 
+  /**
+   * Hijack old start function in order to get the dispatch function of the store
+   */
   protected interceptStart(): void {
     // new location for original start method
-    this.store[this.originalStartPath] = this.store.start
+    this.store[this.oldStartPath] = this.store.start
     // new start method for dva
     this.store.start = (...params: any[]) => {
-      const originalOutput = this.store[this.originalStartPath](...params)
+      const originalOutput = this.store[this.oldStartPath](...params)
       // save dispatch function
       this.saveDispatch(this.store._store.dispatch)
       return originalOutput
@@ -134,6 +200,12 @@ class RuaDva extends AbstractPackage implements HasStore {
   }
 
 
+  /**
+   * Process dva instance
+   *
+   * @param dva
+   * @returns {boolean}
+   */
   public rua(dva: any): boolean {
     RuaDva.validateDva(dva)
     this.saveDva(dva)
@@ -144,6 +216,21 @@ class RuaDva extends AbstractPackage implements HasStore {
     this.booted = true
     return this.booted
   }
+
+  // --------------------    static functions     -------------------
+  /**
+   * Verify dva instance
+   *
+   * @param dva
+   */
+  protected static validateDva (dva: any): void {
+    // check model/start/unmodel method
+    // invariant(
+    //   dva.model && dva.start && dva.unmodel,
+    //   `[Rua.js][dva]Invalid dva is given.`
+    // )
+  }
+
 }
 
 

@@ -32,7 +32,7 @@ const ruaDva = (dva: any): boolean => {
 }
 
 /**
- * Action List
+ * Actions
  *
  * @type {Actions}
  */

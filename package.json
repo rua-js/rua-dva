@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "invariant": "^2.2.2",
-    "rua-core": "^0.1.4"
+    "rua-core": "^0.1.8"
   }
 }

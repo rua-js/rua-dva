@@ -2594,9 +2594,9 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rua-core@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.1.4.tgz#4a7bf37b3a9f881c1915f33e8cd9606838bdb1cf"
+rua-core@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.1.8.tgz#8d65ef90c7ab8a5342e57d64ee8afc2f9bb6f945"
   dependencies:
     invariant "^2.2.2"
 
