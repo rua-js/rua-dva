@@ -1,6 +1,6 @@
 {
   "name": "rua-dva",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "An elegant way to use dva",
   "main": "lib/index.js",
   "directories": {
@@ -47,6 +47,6 @@
     "dva-core": "*",
     "global": "^4.3.2",
     "invariant": "^2.2.2",
-    "rua-core": "^0.1.8"
+    "rua-core": "^0.2.0-rc.1"
   }
 }

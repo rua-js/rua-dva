@@ -19,13 +19,6 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
   public store: Store = {}
 
   /**
-   * boot status
-   *
-   * @type {boolean}
-   */
-  public booted: boolean = false
-
-  /**
    * RuaDva actions
    *
    * @type {object}

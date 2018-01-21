@@ -2748,10 +2748,11 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rua-core@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.1.8.tgz#8d65ef90c7ab8a5342e57d64ee8afc2f9bb6f945"
+rua-core@^0.2.0-rc.1:
+  version "0.2.0-rc.1"
+  resolved "https://registry.npmjs.org/rua-core/-/rua-core-0.2.0-rc.1.tgz#58a61bc4f35dd706408db3a939e6d4e7ad03eb77"
   dependencies:
+    global "^4.3.2"
     invariant "^2.2.2"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:

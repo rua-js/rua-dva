@@ -1,5 +1,4 @@
 import { Actions } from './lib/Types/index';
-declare const ruaDva: (dva: any) => boolean;
-declare const actions: Actions;
-declare const dvaLite: (options: any) => any;
-export { ruaDva, actions, dvaLite };
+export declare const ruaDva: (dva: any) => boolean;
+export declare const actions: Actions;
+export declare const dvaLite: (options: any) => any;

@@ -33,7 +33,7 @@ const dvaInstance: RuaDva = ((): any => {
  * @param dva
  * @returns {boolean}
  */
-const ruaDva = (dva: any): boolean => {
+export const ruaDva = (dva: any): boolean => {
   return dvaInstance.rua(dva)
 }
 
@@ -42,9 +42,9 @@ const ruaDva = (dva: any): boolean => {
  *
  * @type {Actions}
  */
-const actions = dvaInstance.actions
+export const actions = dvaInstance.actions
 
-const dvaLite = (options: any) => {
+export const dvaLite = (options: any) => {
   // create dva
   const app = create(options)
   // rua dva
@@ -70,8 +70,3 @@ const dvaLite = (options: any) => {
 }
 
 
-export {
-  ruaDva,
-  actions,
-  dvaLite,
-}
