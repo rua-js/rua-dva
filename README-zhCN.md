@@ -1,8 +1,8 @@
 # Rua-Dva
 让dva.js更加好用, 优雅 (灵感来自 by [MirrorJs](https://github.com/mirrorjs/mirror))
 
-## 稳定版本: 0.4.0
-`yarn add rua-dva@0.4.0`
+## 稳定版本: 0.4.1
+`yarn add rua-dva@0.4.1`
 
 ## 什么是Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
