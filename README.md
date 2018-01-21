@@ -1,5 +1,5 @@
 # Rua-Dva
-Easier way to use dva.js
+Easier way to use dva.js (Inspired by [MirrorJs](https://github.com/mirrorjs/mirror))
 
 [中文介绍](./README-zhCN.md)
 
@@ -9,20 +9,13 @@ Easier way to use dva.js
 ## What is Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
 
-## What is Rua
-rua means wrapper / enhancement
-
-## Inspiration
-[MirrorJs](https://github.com/mirrorjs/mirror)
-
-the actions design is great, but other part of mirror.js is bad.
+## Features
+- `actions` simplifies `dispatch` function  (See usage 1,2,3)
+- `dvaLite` provides a lite version of dva  (original dva integrates react router)
+- [Under Development] `dvaReactNavigation` provides dva which integrates `React Navigation`
 
 ## Todo
-- [ ] enable adding existing model to rua-dva
-
-- [ ] integrated with rua-core
-
-- [ ] use Class rewrite rua-dva
+- [ ] dvaReactNavigation
 
 ## Bootstrap
 

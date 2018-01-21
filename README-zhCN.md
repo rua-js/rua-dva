@@ -1,5 +1,5 @@
 # Rua-Dva
-让dva.js更加好用, 优雅
+让dva.js更加好用, 优雅 (灵感来自 by [MirrorJs](https://github.com/mirrorjs/mirror))
 
 ## 稳定版本: 0.4.0
 `yarn add rua-dva@0.4.0`
@@ -7,20 +7,13 @@
 ## 什么是Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
 
-## 什么是Rua
-rua是重庆话, 普通话里是用力揉和用力捏的意思, 我们这里是处理一下的意思 (Wrapper).
+## 功能
+- `actions` 简化了 `dispatch` 函数 (See usage 1,2,3)
+- `dvaLite` 是一个简化版去掉了原始dva集成的React Router
+- [开发中] `dvaReactNavigation` 集成了 `React Navigation` 路由库
 
-## Actions 来自
-[MirrorJs](https://github.com/mirrorjs/mirror)
-
-但是MirrorJs其他部分实在太差了.
-
-## 待办事项
-- [ ] 添加已有的model到rua-dva里面
-
-- [ ] 集成rua-core
-
-- [ ] Class化
+## Todo
+- [ ] dvaReactNavigation
 
 ## 快速开始
 
