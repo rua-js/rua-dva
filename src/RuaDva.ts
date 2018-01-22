@@ -31,7 +31,7 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    * @param args
    * @returns {any}
    */
-  protected dispatch: any = (...args: any[]) => this.store._store.dispatch(...args)
+  protected dispatch: Function = (...args: any[]) => this.store._store.dispatch(...args)
 
   /**
    * Old function of model
@@ -62,7 +62,7 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    *
    * @param dispatch
    */
-  public saveDispatch(dispatch: any): void {
+  public saveDispatch(dispatch: Function): void {
     this.dispatch = dispatch
   }
 
