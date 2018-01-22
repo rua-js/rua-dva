@@ -1,5 +1,5 @@
 # Rua-Dva
-[![npm version](https://badge.fury.io/js/rua-event.svg)](https://badge.fury.io/js/rua-dva)
+[![npm version](https://badge.fury.io/js/rua-dva.svg)](https://badge.fury.io/js/rua-dva)
 ![production ready](https://img.shields.io/badge/production--ready-YES-brightgreen.svg)
 Easier way to use dva.js (Inspired by [MirrorJs](https://github.com/mirrorjs/mirror))
 
