@@ -1,6 +1,6 @@
 {
   "name": "rua-dva",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "An elegant way to use dva",
   "main": "lib/index.js",
   "directories": {
@@ -38,8 +38,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "jest": "^21.2.1",
-    "react": "*",
-    "react-redux": "*",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"
   },
@@ -47,6 +45,6 @@
     "dva-core": "*",
     "global": "^4.3.2",
     "invariant": "^2.2.2",
-    "rua-core": "^0.2.0-rc.1"
+    "rua-core": "^0.2.0"
   }
 }
