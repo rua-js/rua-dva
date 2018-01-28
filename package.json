@@ -30,6 +30,12 @@
     "index.d.ts"
   ],
   "homepage": "https://github.com/rua-js/rua-dva#readme",
+  "dependencies": {
+    "dva-core": "*",
+    "global": "^4.3.2",
+    "invariant": "^2.2.2",
+    "rua-core": "^0.2.0"
+  },
   "devDependencies": {
     "@types/invariant": "^2.2.29",
     "@types/jest": "^21.1.8",
@@ -38,11 +44,5 @@
     "jest": "^21.2.1",
     "ts-jest": "^21.2.4",
     "typescript": "^2.6.2"
-  },
-  "dependencies": {
-    "dva-core": "*",
-    "global": "^4.3.2",
-    "invariant": "^2.2.2",
-    "rua-core": "^0.2.0"
   }
 }
