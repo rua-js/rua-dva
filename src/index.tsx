@@ -1,15 +1,10 @@
 // Third-party Dependency
-// import invariant from 'invariant'
-import * as React from 'react'
-// @ts-ignore
-import { create } from 'dva-core'
-import { Provider, connect } from 'react-redux'
-// @ts-ignore
-import * as global from 'global'
-
 // Self Dependency
 import RuaDva from './RuaDva'
 import { Actions } from './Types'
+import {
+  dvaLite as getDvaLite,
+} from './dva'
 
 // Rua Core Dependency
 import { packager } from 'rua-core/lib'
@@ -44,29 +39,8 @@ export const ruaDva = (dva: any): boolean => {
  */
 export const actions = dvaInstance.actions
 
-export const dvaLite = (options: any) => {
-  // create dva
-  const app = create(options)
-  // rua dva
-  ruaDva(app)
-  // avoid duplicate registration
-  if (!global.registered) options.models.forEach((model: any) => app.model(model))
-  global.registered = true
-  // old start
-  app.start()
-  // store
-  const store = app._store
-
-  // new start
-  app.start = (container: any) => () => (
-    <Provider store={store}>
-      {container}
-    </Provider>
-  )
-
-  app.getStore = () => store
-
-  return app
-}
-
-
+/**
+ * Dva lite version (no-router-version)
+ * @type {(options: any) => any}
+ */
+export const dvaLite = getDvaLite(ruaDva)
