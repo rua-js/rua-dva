@@ -15,6 +15,7 @@ import { packager } from 'rua-core/lib'
  * @type {RuaDva}
  */
 const dvaInstance: RuaDva = <RuaDva>packager.registerIfNotRegistered('rua-dva', new RuaDva())
+
 /**
  * Rua Function
  *
