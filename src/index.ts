@@ -14,23 +14,14 @@ import { packager } from 'rua-core/lib'
  *
  * @type {RuaDva}
  */
-const dvaInstance: RuaDva = ((): any => {
-  if (packager.hasPackage('rua-dva')) {
-    return packager.getPackage('rua-dva')
-  }
-
-  return packager.registerIfNotRegistered('rua-dva', new RuaDva())
-})()
-
+const dvaInstance: RuaDva = <RuaDva>packager.registerIfNotRegistered('rua-dva', new RuaDva())
 /**
  * Rua Function
  *
  * @param dva
  * @returns {boolean}
  */
-export const ruaDva = (dva: any): boolean => {
-  return dvaInstance.rua(dva)
-}
+export const ruaDva = dvaInstance.rua
 
 /**
  * Actions
