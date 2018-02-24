@@ -2,7 +2,10 @@
 // Self Dependency
 import RuaDva from './RuaDva'
 import { Actions } from './Types'
-import { dvaLite as getDvaLite, } from './dva'
+import {
+  dvaLite as getDvaLite,
+  dva as getDva,
+} from './dva'
 // Rua Core Dependency
 import { packager } from 'rua-core/lib'
 
@@ -19,17 +22,30 @@ const dvaInstance: RuaDva = <RuaDva>packager.registerIfNotRegistered('rua-dva', 
  * @param dva
  * @returns {boolean}
  */
-export const ruaDva = dvaInstance.rua
+const ruaDva = dvaInstance.rua
 
 /**
  * Actions
  *
  * @type {Actions}
  */
-export const actions = dvaInstance.actions
+const actions = dvaInstance.actions
 
 /**
  * Dva lite version (no-router-version)
  * @type {(options: any) => any}
  */
-export const dvaLite = getDvaLite(ruaDva)
+const dvaLite = getDvaLite(ruaDva)
+
+/**
+ * Dva original version
+ *
+ * @type {(options: any) => any}
+ */
+const dva = getDva(ruaDva)
+
+export {
+  actions,
+  dva,
+  dvaLite,
+}
