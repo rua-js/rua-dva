@@ -1,8 +1,7 @@
-
 import * as React from 'react'
 // @ts-ignore
 import { create } from 'dva-core'
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 // @ts-ignore
 import * as global from 'global'
 

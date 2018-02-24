@@ -2,10 +2,7 @@
 // Self Dependency
 import RuaDva from './RuaDva'
 import { Actions } from './Types'
-import {
-  dvaLite as getDvaLite,
-} from './dva'
-
+import { dvaLite as getDvaLite, } from './dva'
 // Rua Core Dependency
 import { packager } from 'rua-core/lib'
 

@@ -1,15 +1,13 @@
 // Third-party Dependency
-import * as invariant from 'invariant'
-
 // Self Dependency
 import { Actions } from './Types'
-
 // Rua Core Dependency
 import { HasStore } from 'rua-core/lib/Contracts'
 import { Store } from 'rua-core/lib/Types'
 import { AbstractRuaPackage } from 'rua-core/lib/Abstractions'
 
-class RuaDva extends AbstractRuaPackage implements HasStore {
+class RuaDva extends AbstractRuaPackage implements HasStore
+{
 
   /**
    * The dva instance
@@ -57,13 +55,47 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
 
   // -------------------- getter, setter, checker -------------------
 
+  // --------------------    static functions     -------------------
+  /**
+   * Verify dva instance
+   *
+   * @param dva
+   */
+  protected static validateDva(dva: any): void
+  {
+    // check model/start/unmodel method
+    // invariant(
+    //   dva.model && dva.start && dva.unmodel,
+    //   `[Rua.js][dva]Invalid dva is given.`
+    // )
+  }
+
   /**
    * Save dispatch function
    *
    * @param dispatch
    */
-  public saveDispatch(dispatch: Function): void {
+  public saveDispatch(dispatch: Function): void
+  {
     this.dispatch = dispatch
+  }
+
+  /**
+   * Process dva instance
+   *
+   * @param dva
+   * @returns {boolean}
+   */
+  public rua(dva: any): boolean
+  {
+    RuaDva.validateDva(dva)
+    this.saveDva(dva)
+    this.registerExistingModels()
+    this.interceptModel()
+    this.interceptUnmodel()
+    this.interceptStart()
+    this.booted = true
+    return this.booted
   }
 
   /**
@@ -71,7 +103,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    *
    * @param {object} dva
    */
-  protected saveDva (dva: any): void {
+  protected saveDva(dva: any): void
+  {
     // save to store
     this.store = dva
     // initialize property
@@ -84,7 +117,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    * Register existing models in the dva instance
    *
    */
-  protected registerExistingModels (): void {
+  protected registerExistingModels(): void
+  {
     const models = this.store._models
     for (const model in models) {
       if (Object.prototype.hasOwnProperty.call(models, model)) {
@@ -98,7 +132,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    *
    * @param model
    */
-  protected registerModel(model: any): void {
+  protected registerModel(model: any): void
+  {
     const { namespace, reducers, effects } = model
     this.actions[namespace] = {
       ...this.registerActions(namespace, reducers),
@@ -113,7 +148,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    * @param reducers
    * @returns {object}
    */
-  protected registerActions(namespace: string, reducers: any): object {
+  protected registerActions(namespace: string, reducers: any): object
+  {
     const actions: Actions = {}
     for (const reducer in reducers) {
       if (Object.prototype.hasOwnProperty.call(reducers, reducer)) {
@@ -136,7 +172,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
    * @param {string} namespace
    * @returns {boolean}
    */
-  protected unregisterActions(namespace: string): boolean {
+  protected unregisterActions(namespace: string): boolean
+  {
     delete this.actions[namespace]
     return !this.actions[namespace]
   }
@@ -144,7 +181,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
   /**
    * Hijack old model function. New model function can register actions automatically
    */
-  protected interceptModel(): void {
+  protected interceptModel(): void
+  {
     // new location for original model method
     this.store[this.oldModelPath] = this.store.model
     // new model method for dva
@@ -157,7 +195,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
   /**
    * Hijack old unmodel function. New unmodel function can unregister actions automatically
    */
-  protected interceptUnmodel(): void {
+  protected interceptUnmodel(): void
+  {
     // new location for original unmodel method
     this.store[this.oldUnmodelPath] = this.store.unmodel
     // new unmodel method for dva
@@ -173,7 +212,8 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
   /**
    * Hijack old start function in order to get the dispatch function of the store
    */
-  protected interceptStart(): void {
+  protected interceptStart(): void
+  {
     // new location for original start method
     this.store[this.oldStartPath] = this.store.start
     // new start method for dva
@@ -184,39 +224,6 @@ class RuaDva extends AbstractRuaPackage implements HasStore {
       return originalOutput
     }
   }
-
-
-  /**
-   * Process dva instance
-   *
-   * @param dva
-   * @returns {boolean}
-   */
-  public rua(dva: any): boolean {
-    RuaDva.validateDva(dva)
-    this.saveDva(dva)
-    this.registerExistingModels()
-    this.interceptModel()
-    this.interceptUnmodel()
-    this.interceptStart()
-    this.booted = true
-    return this.booted
-  }
-
-  // --------------------    static functions     -------------------
-  /**
-   * Verify dva instance
-   *
-   * @param dva
-   */
-  protected static validateDva (dva: any): void {
-    // check model/start/unmodel method
-    // invariant(
-    //   dva.model && dva.start && dva.unmodel,
-    //   `[Rua.js][dva]Invalid dva is given.`
-    // )
-  }
-
 }
 
 
