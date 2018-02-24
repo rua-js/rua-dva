@@ -31,6 +31,7 @@
   ],
   "homepage": "https://github.com/rua-js/rua-dva#readme",
   "dependencies": {
+    "dva": "^2.1.0",
     "dva-core": "*",
     "global": "^4.3.2",
     "invariant": "^2.2.2",

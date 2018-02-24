@@ -6,8 +6,8 @@ Easier way to use dva.js (Inspired by [MirrorJs](https://github.com/mirrorjs/mir
 
 [中文介绍](./README-zhCN.md)
 
-## Stable Version: 0.4.1
-`yarn add rua-dva@0.4.1`
+## Version Note
+RuaDva's version will match the dva's version that we use
 
 ## What is Dva?
 [dvajs/dva](https://github.com/dvajs/dva)
@@ -17,7 +17,7 @@ Easier way to use dva.js (Inspired by [MirrorJs](https://github.com/mirrorjs/mir
 - `dvaLite` provides a lite version of dva  (original dva integrates react router)
 - [Under Development] `dvaReactNavigation` provides dva which integrates `React Navigation`
 
-## Todo
+## Todo (Drafting)
 - [ ] dvaReactNavigation
 
 ## Bootstrap
