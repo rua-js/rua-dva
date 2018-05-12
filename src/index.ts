@@ -22,7 +22,7 @@ const dvaInstance: RuaDva = <RuaDva>packager.registerIfNotRegistered('rua-dva', 
  * @param dva
  * @returns {boolean}
  */
-const ruaDva = dvaInstance.rua
+const ruaDva = dvaInstance.rua.bind(dvaInstance)
 
 /**
  * Actions
