@@ -17,9 +17,6 @@ RuaDva's version will match the dva's version that we use
 - `dvaLite` provides a lite version of dva  (original dva integrates react router)
 - [Under Development] `dvaReactNavigation` provides dva which integrates `React Navigation`
 
-## Todo (Drafting)
-- [ ] dvaReactNavigation
-
 ## Bootstrap
 
 ### Setup
